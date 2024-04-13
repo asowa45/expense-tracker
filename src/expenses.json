@@ -1,0 +1,19 @@
+{
+  "expenses": [
+    {
+      "id": "d896",
+      "name": "Salary",
+      "amount": "30000"
+    },
+    {
+      "id": "01bf",
+      "name": "Clothing",
+      "amount": "-560.90"
+    },
+    {
+      "id": "7aed",
+      "name": "Gift to wife",
+      "amount": "-9000"
+    }
+  ]
+}

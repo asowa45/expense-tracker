@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import {toast} from 'react-toastify'
+import {generateId} from '../utils/general'
 
 const AddTransaction = ({onSubmit}) => {
 
@@ -11,6 +12,7 @@ const AddTransaction = ({onSubmit}) => {
 
         e.preventDefault();
         const newTransaction = {
+            id: generateId(4),
             name,
             amount
         }

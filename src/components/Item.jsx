@@ -13,21 +13,26 @@ const Item = ({item}) => {
     // const {transactions, setTransactions} = useContext(ActiveTransactions)
 
     const deleteTransaction = async(id) => {
-        const response = await fetch(`/api/expenses/${id}`, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            }
-        })
+        //For JSON Server Use
+        // const response = await fetch(`/api/expenses/${id}`, {
+        //     method: 'DELETE',
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //         'Accept': 'application/json'
+        //     }
+        // })
 
-        if (response.ok) {
-            toast.success("Deleted transaction")
-        } else {
-            toast.error("Failed to delete transaction")
-        }
-        console.log(transactions);
+        // if (response.ok) {
+        //     toast.success("Deleted transaction")
+        // } else {
+        //     toast.error("Failed to delete transaction")
+        // }
+        // console.log(transactions);
 
+        // const newTransaction = transactions.filter(transaction => transaction.id !== id)
+
+        // setTransactions(newTransaction)
+        //End of For JSON Server Use
         const newTransaction = transactions.filter(transaction => transaction.id !== id)
 
         setTransactions(newTransaction)

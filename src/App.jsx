@@ -6,43 +6,50 @@ import Balance from './components/Balance'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import { createContext } from 'react'
+import dataList from './expenses_.json' //for local data  
 // import { TransactionContext, TransactionProvider } from './contexts/TransactionContext'
 
 export const TransactionProvider = createContext(null)
 
 function App() {
 
+  console.log(dataList)
 
-  const [transactions, setTransactions] = useState([])
+  const [transactions, setTransactions] = useState(dataList)
   // const { transactions, setTransactions } = useContext(TransactionContext)
-  let apiUrl = '/api/expenses'
+  
+  // let apiUrl = '/api/expenses'
 
-  useEffect(() => {
-    const getAllTransactions = async() => {
-      const response = await fetch(apiUrl)
-      const allTransactions = await response.json()
+  // useEffect(() => {
+  //   const getAllTransactions = async() => {
+  //     const response = await fetch(apiUrl)
+  //     const allTransactions = await response.json()
 
-      setTransactions(allTransactions)
+  //     setTransactions(allTransactions)
       
-    }
-    return getAllTransactions;
-  },[])
+  //   }
+  //   return getAllTransactions;
+  // },[])
 
 
   const handleSubmit = async(data) => {
 
-    await fetch(apiUrl, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    })
+    //---For JSON Server Use
+    // await fetch(apiUrl, {
+    //     method: 'POST',
+    //     headers: {
+    //         'Content-Type': 'application/json'
+    //     },
+    //     body: JSON.stringify(data)
+    // })
 
-    const response = await fetch(apiUrl)
-    const allTransactions = await response.json()
+    // const response = await fetch(apiUrl)
+    // const allTransactions = await response.json()
 
-      setTransactions(allTransactions)
+    // setTransactions(allTransactions)
+    //----End For JSON Server Use
+
+      setTransactions([...transactions,data])
     return;
 }
 
